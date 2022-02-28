@@ -1,9 +1,9 @@
 import React from "react";
-import { HomeContentStyled } from "./HomeContent.styles";
-import Dashboard from "../Dashboard";
-import Sidebar from "../Sidebar";
+import Dashboard from "src/components/Dashboard";
+import Sidebar from "src/components/Sidebar";
+import Settings from "src/components/Settings";
 import { IHomeContent } from "./HomeContent.interface";
-import Settings from "../Settings";
+import { HomeContentStyled } from "./HomeContent.styles";
 
 const HomeContent: React.FC<IHomeContent> = ({
   currentLocation,

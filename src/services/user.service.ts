@@ -1,5 +1,5 @@
 import axios from "axios";
-import { IUser } from "../globalInterfaces";
+import { IUser } from "src/interfaces/user.interface";
 
 interface IGetUser {
   userName: string;

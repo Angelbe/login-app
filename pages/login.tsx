@@ -5,7 +5,7 @@ import Footer from "src/components/Footer";
 import Main from "src/components/Main";
 import LoginForm from "src/components/LoginForm";
 
-import { PageStyled } from "../styles/globalStyledComponents";
+import { PageStyled } from "styles/globalStyledComponents";
 
 const Login: NextPage = () => (
   <PageStyled>

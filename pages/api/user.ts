@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { IUser } from "../../src/globalInterfaces";
+import { IUser } from "src/interfaces/user.interface";
 
 const userList: IUser[] = [
   {
@@ -17,8 +17,6 @@ export default function handler(
 ) {
   if (req.method === "GET") {
     const { user, password } = req.query;
-    // const userStr = JSON.parse(user as string);
-    // const passwordStr = JSON.parse(password as string);
 
     const userRequested = userList.find(
       ({ name: userName, password: userPassword }) =>
