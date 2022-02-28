@@ -1,3 +1,4 @@
+import React from "react";
 import type { NextPage } from "next";
 import styled from "styled-components";
 import Header from "../src/components/Header";
@@ -9,14 +10,12 @@ const Title = styled.div`
   display: grid;
 `;
 
-const Home: NextPage = () => {
-  return (
-    <Title>
-      <Header />
-      <Body />
-      <Footer />
-    </Title>
-  );
-};
+const Home: NextPage = () => (
+  <Title>
+    <Header />
+    <Body />
+    <Footer />
+  </Title>
+);
 
 export default Home;

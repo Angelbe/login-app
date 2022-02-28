@@ -1,12 +1,4 @@
-interface ITheme {
-  defaultFontSize: string;
-  mainColor: string;
-  mainColorlighter: string;
-  secundaryColor: string;
-  secundaryColorLighter: string;
-  disabledColor: string;
-  borderRadius: string;
-}
+import { ITheme } from "src/globalInterfaces";
 
 const theme: ITheme = {
   defaultFontSize: "16px",
@@ -14,6 +6,7 @@ const theme: ITheme = {
   mainColorlighter: "#efefef",
   secundaryColor: "#035e7f",
   secundaryColorLighter: "#046e93",
+  secundaryColorLight: "#d7e7f8",
   disabledColor: "#b5b3b3",
   borderRadius: "10px",
 };

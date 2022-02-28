@@ -3,9 +3,9 @@ import Input from "../Input";
 import { IFormInput } from "./FormInput.interface";
 import { TitleContainer } from "./FormInput.styles";
 
-const FormInput: React.FC<IFormInput> = ({ Title, ...props }) => (
+const FormInput: React.FC<IFormInput> = ({ title, ...props }) => (
   <div>
-    <TitleContainer>{Title}</TitleContainer>
+    <TitleContainer>{title}</TitleContainer>
     <Input {...props} />
   </div>
 );

@@ -1,7 +1,7 @@
-import { MouseEvent } from "react";
+import { FormEventHandler, MouseEvent } from "react";
 
 export interface IHandleSubmit {
   event: MouseEvent<HTMLButtonElement>;
 }
 
-export type THandleSubmit = (param: IHandleSubmit) => void;
+export type THandleSubmit = FormEventHandler<HTMLFormElement>;

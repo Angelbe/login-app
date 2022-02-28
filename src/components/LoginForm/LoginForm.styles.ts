@@ -1,6 +1,11 @@
 import styled from "styled-components";
+import { FormEventHandler } from "react";
 
-export const LoginFormContainer = styled.form`
+interface ILoginFormContainer {
+  onSubmit: FormEventHandler<HTMLFormElement>;
+}
+
+export const LoginFormContainer = styled.form<ILoginFormContainer>`
   padding: 40px 90px;
   background-color: white;
   border: 1px solid black;

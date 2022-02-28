@@ -1,18 +1,13 @@
 import React, { ForwardedRef } from "react";
-import { THandleSubmit } from "../LoginForm/LoginForm.interfaces";
 
 interface IButtonProps {
+  onClick?: never;
   children?: React.ReactNode;
-  onClick: THandleSubmit;
+  type?: string;
   ref?: ForwardedRef<HTMLButtonElement>;
   color?: string;
   bcolor?: string;
   disabled?: boolean;
 }
 
-interface IButtonStyledProps {
-  color?: string;
-  bcolor?: string;
-}
-
-export type { IButtonStyledProps, IButtonProps };
+export type { IButtonProps };

@@ -18,6 +18,6 @@ export const SidebarItem = styled.button`
   border: 0;
   border-radius: 10px;
   :hover {
-    background-color: #fef9ea;
+    background-color: ${({ theme }) => theme.secundaryColorLight};
   }
 `;

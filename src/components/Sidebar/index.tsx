@@ -7,19 +7,17 @@ interface ISidebar {
   setCurrentLocation: Dispatch<SetStateAction<string>>;
 }
 
-const Sidebar: React.FC<ISidebar> = ({ setCurrentLocation }) => {
-  return (
-    <SidebarContainerStyled>
-      <SidebarItem onClick={() => setCurrentLocation("dashboard")}>
-        <Compas fill="#798181" />
-        <div>Dashboard</div>
-      </SidebarItem>
-      <SidebarItem onClick={() => setCurrentLocation("settings")}>
-        <Cog fill="#798181" />
-        <div>Settings</div>
-      </SidebarItem>
-    </SidebarContainerStyled>
-  );
-};
+const Sidebar: React.FC<ISidebar> = ({ setCurrentLocation }) => (
+  <SidebarContainerStyled>
+    <SidebarItem onClick={() => setCurrentLocation("dashboard")}>
+      <Compas fill="#798181" />
+      <div>Dashboard</div>
+    </SidebarItem>
+    <SidebarItem onClick={() => setCurrentLocation("settings")}>
+      <Cog fill="#798181" />
+      <div>Settings</div>
+    </SidebarItem>
+  </SidebarContainerStyled>
+);
 
 export default Sidebar;

@@ -1,4 +1,5 @@
 export interface IFormInput {
-  Title: string;
+  title: string;
   type?: string;
+  name?: string;
 }

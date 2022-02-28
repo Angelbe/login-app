@@ -9,13 +9,11 @@ interface IDashboard {
   title: string;
 }
 
-const Dashboard: React.FC<IDashboard> = ({ title }) => {
-  return (
-    <ContentContainer>
-      <ContentTitleContainer>{title}</ContentTitleContainer>
-      <ContentTextContainer>Dashboard</ContentTextContainer>
-    </ContentContainer>
-  );
-};
+const Dashboard: React.FC<IDashboard> = ({ title }) => (
+  <ContentContainer>
+    <ContentTitleContainer>{title}</ContentTitleContainer>
+    <ContentTextContainer>Dashboard</ContentTextContainer>
+  </ContentContainer>
+);
 
 export default Dashboard;

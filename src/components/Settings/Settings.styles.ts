@@ -5,11 +5,11 @@ export const ContentContainer = styled.div`
 `;
 
 export const ContentTitleContainer = styled.div`
-  color: black;
+  color: white;
   text-transform: capitalize;
   font-weight: bold;
   padding: 25px;
-  background-color: #fce094;
+  background-color: ${({ theme }) => theme.secundaryColorLighter};
 `;
 
 export const ContentTextContainer = styled.div`
