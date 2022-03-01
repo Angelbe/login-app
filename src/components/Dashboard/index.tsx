@@ -1,19 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getCountries } from "src/services/coutry.services";
+import { ICountry } from "src/interfaces/country.interface";
+import CountryGraph from "src/components/CountryGraph";
+import CountryGraphHeader from "src/components/CountryGraphHeader";
 import {
-  ContentTextContainer,
-  ContentContainer,
-  ContentTitleContainer,
+  DashboardContent,
+  DashboardContainer,
+  DashbardTitle,
 } from "./Dashboard.styles";
+import { IDashboard } from "./Dashboard.interface";
 
-interface IDashboard {
-  title: string;
-}
+const Dashboard: React.FC<IDashboard> = ({ title }) => {
+  const [countries, setCountries] = useState<ICountry[]>([]);
+  const [sortValue, setSortValue] = useState<keyof ICountry>("airPollution");
 
-const Dashboard: React.FC<IDashboard> = ({ title }) => (
-  <ContentContainer>
-    <ContentTitleContainer>{title}</ContentTitleContainer>
-    <ContentTextContainer>Dashboard</ContentTextContainer>
-  </ContentContainer>
-);
+  useEffect(() => {
+    getCountries().then((countriesList) => setCountries(countriesList));
+  }, []);
+
+  return (
+    <DashboardContainer>
+      <DashbardTitle>{title}</DashbardTitle>
+      <DashboardContent>
+        <CountryGraphHeader sortValue={sortValue} setSortValue={setSortValue} />
+        <CountryGraph countryList={countries} sortValue={sortValue} />
+      </DashboardContent>
+    </DashboardContainer>
+  );
+};
 
 export default Dashboard;

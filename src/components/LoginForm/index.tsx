@@ -11,7 +11,7 @@ import {
   LoginInputsContainer,
   TitleFormContainer,
 } from "./LoginForm.styles";
-import { THandleSubmit } from "./LoginForm.interfaces";
+import { THandleSubmit } from "./LoginForm.interface";
 
 const LoginForm: React.FC = () => {
   const router = useRouter();

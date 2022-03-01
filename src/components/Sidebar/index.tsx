@@ -1,6 +1,6 @@
 import React from "react";
 import { SidebarContainerStyled, SidebarItem } from "./Sidebar.styles";
-import { ISidebar } from "./Sidebar.interfaces";
+import { ISidebar } from "./Sidebar.interface";
 import { sidebarNavList } from "./Sidebar.variables";
 
 const Sidebar: React.FC<ISidebar> = ({ setCurrentLocation }) => (

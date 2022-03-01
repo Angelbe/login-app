@@ -5,3 +5,10 @@ export interface IUser {
   genre: string;
   location: string;
 }
+
+export interface IGetUser {
+  userName: string;
+  password: string;
+}
+
+export type TGetUser = (param: IGetUser) => Promise<IUser>;

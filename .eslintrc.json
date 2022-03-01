@@ -27,7 +27,7 @@
     "import/extensions": "off",
     "import/no-unresolved": "off",
     "no-shadow": "off",
-    "@typescript-eslint/no-shadow": ["error"],
+    "@typescript-eslint/no-shadow": "off",
     "react/prop-types": 0,
     "react-hooks/exhaustive-deps": "off"
   }
