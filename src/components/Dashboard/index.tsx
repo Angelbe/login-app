@@ -9,13 +9,20 @@ import {
   DashbardTitle,
 } from "./Dashboard.styles";
 import { IDashboard } from "./Dashboard.interface";
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import { selectCountryList, setCountryList } from "../../features/countryList";
 
 const Dashboard: React.FC<IDashboard> = ({ title }) => {
-  const [countries, setCountries] = useState<ICountry[]>([]);
+  const dispatch = useAppDispatch();
+  const countryList = useAppSelector(selectCountryList);
   const [sortValue, setSortValue] = useState<keyof ICountry>("airPollution");
 
   useEffect(() => {
-    getCountries().then((countriesList) => setCountries(countriesList));
+    if (countryList.length <= 0) {
+      getCountries().then((countriesList) =>
+        dispatch(setCountryList(countriesList))
+      );
+    }
   }, []);
 
   return (
@@ -23,7 +30,7 @@ const Dashboard: React.FC<IDashboard> = ({ title }) => {
       <DashbardTitle>{title}</DashbardTitle>
       <DashboardContent>
         <CountryGraphHeader sortValue={sortValue} setSortValue={setSortValue} />
-        <CountryGraph countryList={countries} sortValue={sortValue} />
+        <CountryGraph countryList={countryList} sortValue={sortValue} />
       </DashboardContent>
     </DashboardContainer>
   );

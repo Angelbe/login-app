@@ -27,7 +27,7 @@ const CountryGraph: React.FC<ICountryGraph> = ({ countryList, sortValue }) => {
 
   return (
     <div>
-      {countryList
+      {[...countryList]
         .sort((firstCountry, secondCountry) =>
           sortCountries({
             firstCountry: firstCountry[sortValue] as number,
