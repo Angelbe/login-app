@@ -7,7 +7,11 @@ export const SidebarContainerStyled = styled.div`
   box-shadow: -5px 0 40px -2px #bebdbd;
 `;
 
-export const SidebarItem = styled.button`
+interface ISidebarItem {
+  selected: boolean;
+}
+
+export const SidebarItem = styled.button<ISidebarItem>`
   padding: 15px;
   cursor: pointer;
   display: flex;
@@ -15,8 +19,11 @@ export const SidebarItem = styled.button`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 10px;
-  border: 0;
+  border: ${({ selected }) => (selected ? "1px solid black" : 0)};
   border-radius: 10px;
+  background-color: ${({ selected, theme }) =>
+    selected ? theme.secundaryColorLight : ""};
+
   :hover {
     background-color: ${({ theme }) => theme.secundaryColorLight};
   }

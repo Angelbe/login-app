@@ -17,6 +17,7 @@ const CountryGraphHeader: React.FC<ICountryGraphHeader> = ({
       Change sort value:
       <SelectCountryParam
         onChange={(event) => setSortValue(event.target.value as keyof ICountry)}
+        value={sortValue}
       >
         {countryParams.map((param) => (
           <option key={param} value={param}>

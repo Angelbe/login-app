@@ -3,14 +3,14 @@ import { getCountries } from "src/services/coutry.services";
 import { ICountry } from "src/interfaces/country.interface";
 import CountryGraph from "src/components/CountryGraph";
 import CountryGraphHeader from "src/components/CountryGraphHeader";
+import { useAppDispatch, useAppSelector } from "src/hooks";
+import { selectCountryList, setCountryList } from "src/features/countryList";
 import {
   DashboardContent,
   DashboardContainer,
   DashbardTitle,
 } from "./Dashboard.styles";
 import { IDashboard } from "./Dashboard.interface";
-import { useAppDispatch, useAppSelector } from "../../hooks";
-import { selectCountryList, setCountryList } from "../../features/countryList";
 
 const Dashboard: React.FC<IDashboard> = ({ title }) => {
   const dispatch = useAppDispatch();
