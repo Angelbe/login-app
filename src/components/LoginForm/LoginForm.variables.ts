@@ -1,10 +1,5 @@
 import { EUserKeys } from "src/interfaces/user.interface";
-
-interface IRegisterInput {
-  key: EUserKeys;
-  title: string;
-  placeholder?: string;
-}
+import { IRegisterInput } from "./LoginForm.interface";
 
 export const registerInputs: IRegisterInput[] = [
   {

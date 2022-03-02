@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ISidebarItem } from "./Sidebar.interface";
 
 export const SidebarContainerStyled = styled.div`
   z-index: 10;
@@ -6,10 +7,6 @@ export const SidebarContainerStyled = styled.div`
   border-right: 1px solid #cfcfcf;
   box-shadow: -5px 0 40px -2px #bebdbd;
 `;
-
-interface ISidebarItem {
-  selected: boolean;
-}
 
 export const SidebarItem = styled.button<ISidebarItem>`
   padding: 15px;

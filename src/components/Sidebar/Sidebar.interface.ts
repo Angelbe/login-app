@@ -14,4 +14,8 @@ export interface ISidebarNav {
   label: string;
 }
 
+export interface ISidebarItem {
+  selected: boolean;
+}
+
 export type THandleItemClick = (param: IHandleItemClick) => void;

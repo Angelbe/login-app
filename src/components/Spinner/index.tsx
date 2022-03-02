@@ -1,11 +1,6 @@
 import styled from "styled-components";
 import { spin } from "styles/animations";
-
-interface ISpinner {
-  width: string;
-  height: string;
-  isLoading?: boolean;
-}
+import { ISpinner } from "./Spinner.interface";
 
 export const Spinner = styled.div<ISpinner>`
   border: 0.2em solid;
