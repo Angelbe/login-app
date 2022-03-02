@@ -9,6 +9,7 @@ import { useAppSelector } from "src/hooks";
 import { selectUser } from "src/features/user";
 import { PageStyled } from "styles/globalStyledComponents";
 import { confirmLoggedIn } from "src/helpers/user.helpers";
+import HeadApp from "src/components/HeadApp";
 
 const Login: NextPage = () => {
   const router = useRouter();
@@ -24,6 +25,7 @@ const Login: NextPage = () => {
   const [currentLocation, setCurrentLocation] = useState<string>("dashboard");
   return (
     <PageStyled>
+      <HeadApp />
       <Header />
       <Main className="MainHome">
         <HomeContent
