@@ -16,14 +16,17 @@ import { editInputs } from "./Settings.variables";
 const Settings: React.FC<ISettings> = ({ title }) => {
   const user: IUser = useAppSelector(selectUser);
   const [open, setOpen] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const dispatch = useAppDispatch();
 
   const handleSaveEdit: THandleSaveEdit = ({ event, userFromPopup }) => {
     event.preventDefault();
+    setIsLoading(true);
     updateUser({ user: userFromPopup }).then(() => {
       dispatch(setUser(userFromPopup));
+      setOpen(false);
+      setIsLoading(false);
     });
-    setOpen(false);
   };
 
   return (
@@ -37,6 +40,9 @@ const Settings: React.FC<ISettings> = ({ title }) => {
           inputsList={editInputs}
           open={open}
           setOpen={setOpen}
+          buttonText="Edit User"
+          popupTitle="Edit User"
+          isLoading={isLoading}
         />
       </ContentTextContainer>
     </ContentContainer>

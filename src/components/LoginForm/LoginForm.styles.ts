@@ -1,11 +1,7 @@
 import styled from "styled-components";
-import { FormEventHandler } from "react";
+import { ILoginInputContainer } from "./LoginForm.interface";
 
-interface ILoginFormContainer {
-  onSubmit: FormEventHandler<HTMLFormElement>;
-}
-
-export const LoginFormContainer = styled.form<ILoginFormContainer>`
+export const LoginFormContainer = styled.div`
   padding: 40px 90px;
   background-color: white;
   border: 1px solid black;
@@ -14,10 +10,15 @@ export const LoginFormContainer = styled.form<ILoginFormContainer>`
   border-radius: ${({ theme }) => theme.borderRadius};
 `;
 
+export const LoginInputContainer = styled.form<ILoginInputContainer>`
+  display: flex;
+  flex-flow: column;
+`;
+
 export const LoginButtonsContainer = styled.div`
   margin-top: 10px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 `;
 
 export const LoginInputsContainer = styled.div`

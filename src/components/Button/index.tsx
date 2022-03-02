@@ -1,9 +1,13 @@
 import React from "react";
-import { ButtonStyled } from "./Button.styles";
+import { Spinner } from "src/components/Spinner";
+import { ButtonStyled, ChildrenContainer } from "./Button.styles";
 import { IButtonProps } from "./Button.interface";
 
-const Button: React.FC<IButtonProps> = ({ children, ...props }) => (
-  <ButtonStyled {...props}>{children}</ButtonStyled>
+const Button: React.FC<IButtonProps> = ({ children, isLoading, ...props }) => (
+  <ButtonStyled {...props}>
+    <Spinner isLoading={isLoading} width="20px" height="20px" />
+    <ChildrenContainer isLoading={isLoading}>{children}</ChildrenContainer>
+  </ButtonStyled>
 );
 
 export default Button;

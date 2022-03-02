@@ -1,5 +1,10 @@
 import axios from "axios";
-import { IUser, TGetUser, TUpdateUser } from "src/interfaces/user.interface";
+import {
+  IUser,
+  TGetUser,
+  TUpdateUser,
+  TRegisterUser,
+} from "src/interfaces/user.interface";
 
 export const getUser: TGetUser = async ({ userName, password }) => {
   const params = `?user=${userName}&password=${password}`;
@@ -16,6 +21,15 @@ export const updateUser: TUpdateUser = async ({ user }) => {
 
   return axios
     .put(url, { userEdited: user })
+    .then(() => "OK")
+    .catch((error) => error.message);
+};
+
+export const registerUser: TRegisterUser = async ({ user }) => {
+  const url = `/api/user`;
+
+  return axios
+    .post(url, { newUser: user })
     .then(() => "OK")
     .catch((error) => error.message);
 };

@@ -28,6 +28,11 @@ export interface IUpdateUser {
   user: IUser;
 }
 
+export interface IRegisterUser {
+  user: IUser;
+}
+
 export type TConfirmLoggedIn = (user: IUser) => boolean;
 export type TGetUser = (param: IGetUser) => Promise<IUser>;
 export type TUpdateUser = (param: IUpdateUser) => Promise<string>;
+export type TRegisterUser = (param: IRegisterUser) => Promise<string>;

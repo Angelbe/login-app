@@ -20,6 +20,8 @@ a {
   background: rgb(255, 255, 255);
   min-width: 450px;
   padding: 30px;
+  border: 5px solid #035e7f;
+  border-radius: 10px;
 }
 
 .popup-overlay {

@@ -7,4 +7,8 @@ export interface ILoginInputs {
   type: string;
 }
 
+export interface ILoginInputContainer {
+  onSubmit: FormEventHandler<HTMLFormElement>;
+}
+
 export type THandleSubmit = FormEventHandler<HTMLFormElement>;

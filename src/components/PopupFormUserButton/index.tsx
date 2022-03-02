@@ -4,21 +4,15 @@ import PopupFormUser from "src/components/PopupFormUser";
 import { IPopupFormUserButton } from "./PopupFormUserButton.interface";
 
 const PopupFormUserButton: React.FC<IPopupFormUserButton> = ({
-  user,
-  handleSave,
-  inputsList,
-  open,
+  buttonText,
   setOpen,
+  ...props
 }) => (
   <>
-    <Button onClick={() => setOpen(true)}>Edit user</Button>
-    <PopupFormUser
-      user={user}
-      inputsList={inputsList}
-      handleSave={handleSave}
-      open={open}
-      setOpen={setOpen}
-    />
+    <Button onClick={() => setOpen(true)} type="button">
+      {buttonText}
+    </Button>
+    <PopupFormUser setOpen={setOpen} {...props} />
   </>
 );
 

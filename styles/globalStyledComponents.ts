@@ -17,6 +17,7 @@ export const PageStyled = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: white;
     border-bottom: 1px solid black;
   }
   > .MainLogin {
@@ -49,9 +50,9 @@ export const PageStyled = styled.div`
     justify-content: space-between;
     align-items: flex-start;
     padding: 0 15px;
+    background-color: white;
     div {
       margin-top: 10px;
     }
-    background-color: #edeff2;
   }
 `;

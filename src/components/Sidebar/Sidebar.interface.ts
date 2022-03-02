@@ -8,4 +8,10 @@ export interface IHandleItemClick {
   name: string;
 }
 
+export interface ISidebarNav {
+  name: string;
+  icon: React.ReactNode;
+  label: string;
+}
+
 export type THandleItemClick = (param: IHandleItemClick) => void;

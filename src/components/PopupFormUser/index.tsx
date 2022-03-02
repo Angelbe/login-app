@@ -13,11 +13,14 @@ const PopupFormUser: React.FC<IPopupFormUser> = ({
   handleSave,
   user,
   inputsList,
+  popupTitle,
+  isLoading,
 }) => {
   const [userEdited, setUserEdited] = useState<IUser>(user || emptyUser);
 
   return (
     <Popup open={open} closeOnDocumentClick onClose={() => setOpen(false)}>
+      <h3>{popupTitle}</h3>
       <form
         onSubmit={(event) => handleSave({ event, userFromPopup: userEdited })}
         className="modal"
@@ -39,7 +42,9 @@ const PopupFormUser: React.FC<IPopupFormUser> = ({
           <Button type="button" onClick={() => setOpen(false)}>
             Close
           </Button>
-          <Button type="submit">Save</Button>
+          <Button type="submit" isLoading={isLoading}>
+            Save
+          </Button>
         </ButtonContainer>
       </form>
     </Popup>

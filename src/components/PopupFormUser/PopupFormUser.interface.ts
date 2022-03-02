@@ -10,5 +10,7 @@ export interface IPopupFormUser {
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   handleSave: THandleSaveEdit;
   user?: IUser;
+  popupTitle: string;
   inputsList: IInputListItem[];
+  isLoading?: boolean;
 }
