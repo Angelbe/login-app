@@ -1,13 +1,13 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { IUser } from "src/interfaces/user.interface";
+import { EUserKeys, IUser } from "src/interfaces/user.interface";
 
-const userList: IUser[] = [
+let userList: IUser[] = [
   {
-    name: "user",
-    password: "pass",
-    id: 8,
-    genre: "male",
-    location: "Spain",
+    [EUserKeys.name]: "user",
+    [EUserKeys.password]: "pass",
+    [EUserKeys.id]: "id-1",
+    [EUserKeys.genre]: "male",
+    [EUserKeys.location]: "Spain",
   },
 ];
 
@@ -28,5 +28,18 @@ export default function handler(
     }
 
     res.status(200).json(userRequested);
+  }
+
+  if (req.method === "PUT") {
+    const { userEdited } = req.body;
+
+    userList = userList.map((user) => {
+      if (user.id === userEdited.id) {
+        return userEdited;
+      }
+      return user;
+    });
+
+    res.status(200).json("OK");
   }
 }

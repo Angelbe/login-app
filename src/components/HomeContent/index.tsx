@@ -2,7 +2,7 @@ import React from "react";
 import Dashboard from "src/components/Dashboard";
 import Sidebar from "src/components/Sidebar";
 import Settings from "src/components/Settings";
-import { IHomeContent } from "./HomeContent.interface";
+import { EHomeContentLocation, IHomeContent } from "./HomeContent.interface";
 import { HomeContentStyled } from "./HomeContent.styles";
 
 const HomeContent: React.FC<IHomeContent> = ({
@@ -12,7 +12,7 @@ const HomeContent: React.FC<IHomeContent> = ({
   let ContentComponent = () => <Dashboard title={currentLocation} />;
 
   switch (currentLocation) {
-    case "settings":
+    case EHomeContentLocation.settings:
       ContentComponent = function createComponent() {
         return <Settings title={currentLocation} />;
       };

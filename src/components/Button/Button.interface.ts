@@ -1,10 +1,7 @@
-import React, { ForwardedRef } from "react";
+import React from "react";
 
-interface IButtonProps {
-  children?: React.ReactNode;
-  ref?: ForwardedRef<HTMLButtonElement>;
+export interface IButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   color?: string;
   bcolor?: string;
 }
-
-export type { IButtonProps };

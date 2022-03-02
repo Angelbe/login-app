@@ -21,7 +21,6 @@ export const ProgressBar = styled.div<ICountryBar>`
   border-radius: 5px;
   width: ${({ width }) => `${width}%`};
   background-color: #b0dae8;
-  transition: width 1s ease-in-out;
 `;
 
 export const CountryBar = styled.div`

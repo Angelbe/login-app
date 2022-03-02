@@ -24,9 +24,6 @@ export const LoginInputsContainer = styled.div`
   display: flex;
   flex-flow: column;
   justify-content: space-between;
-  input {
-    margin-bottom: 20px;
-  }
 `;
 
 export const TitleFormContainer = styled.h3`

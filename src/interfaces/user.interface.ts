@@ -1,14 +1,33 @@
+export enum EUserKeys {
+  name = "name",
+  location = "location",
+  genre = "genre",
+  password = "password",
+  id = "id",
+}
+
 export interface IUser {
-  name: string;
-  password: string;
-  id: number;
-  genre: string;
-  location: string;
+  [EUserKeys.name]: string;
+  [EUserKeys.password]: string;
+  [EUserKeys.genre]: string;
+  [EUserKeys.location]: string;
+  [EUserKeys.id]: string;
+}
+
+export enum EGetUser {
+  userName = "userName",
+  password = "password",
 }
 
 export interface IGetUser {
-  userName: string;
-  password: string;
+  [EGetUser.userName]: string;
+  [EGetUser.password]: string;
 }
 
+export interface IUpdateUser {
+  user: IUser;
+}
+
+export type TConfirmLoggedIn = (user: IUser) => boolean;
 export type TGetUser = (param: IGetUser) => Promise<IUser>;
+export type TUpdateUser = (param: IUpdateUser) => Promise<string>;

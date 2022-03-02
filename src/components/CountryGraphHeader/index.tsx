@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { ICountry } from "src/interfaces/country.interface";
-import { countryParams } from "./CountryGraphHeader.variables";
+import { countryNamesParams } from "./CountryGraphHeader.variables";
 import { ICountryGraphHeader } from "./CountryGraphHeader.interface";
 import {
   CountryGraphHeaderContainer,
@@ -10,23 +10,34 @@ import {
 const CountryGraphHeader: React.FC<ICountryGraphHeader> = ({
   sortValue,
   setSortValue,
-}) => (
-  <CountryGraphHeaderContainer>
-    <h3>Countries sorted by: {sortValue}</h3>
-    <div>
-      Change sort value:
-      <SelectCountryParam
-        onChange={(event) => setSortValue(event.target.value as keyof ICountry)}
-        value={sortValue}
-      >
-        {countryParams.map((param) => (
-          <option key={param} value={param}>
-            {param}
-          </option>
-        ))}
-      </SelectCountryParam>
-    </div>
-  </CountryGraphHeaderContainer>
-);
+}) => {
+  const nameOfSortedValue: string | undefined = useMemo(
+    () =>
+      countryNamesParams.find((country) => country.countryKey === sortValue)
+        ?.name,
+    [sortValue]
+  );
+
+  return (
+    <CountryGraphHeaderContainer>
+      <h3>Countries sorted by: {nameOfSortedValue}</h3>
+      <div>
+        Change sort value:
+        <SelectCountryParam
+          onChange={(event) =>
+            setSortValue(event.target.value as keyof ICountry)
+          }
+          value={sortValue}
+        >
+          {countryNamesParams.map(({ name, countryKey }) => (
+            <option key={countryKey} value={countryKey}>
+              {name}
+            </option>
+          ))}
+        </SelectCountryParam>
+      </div>
+    </CountryGraphHeaderContainer>
+  );
+};
 
 export default CountryGraphHeader;

@@ -8,7 +8,7 @@ import HomeContent from "src/components/HomeContent";
 import { useAppSelector } from "src/hooks";
 import { selectUser } from "src/features/user";
 import { PageStyled } from "styles/globalStyledComponents";
-import { confirmLoggedIn } from "src/helpers/home.helpers";
+import { confirmLoggedIn } from "src/helpers/user.helpers";
 
 const Login: NextPage = () => {
   const router = useRouter();

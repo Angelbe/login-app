@@ -1,16 +1,21 @@
 import axios from "axios";
-import { IUser, TGetUser } from "src/interfaces/user.interface";
+import { IUser, TGetUser, TUpdateUser } from "src/interfaces/user.interface";
 
 export const getUser: TGetUser = async ({ userName, password }) => {
   const params = `?user=${userName}&password=${password}`;
   const url = `/api/user${params}`;
-  const headers = { "content-type": "application/json" };
 
-  return axios({
-    method: "get",
-    url,
-    headers,
-  })
+  return axios
+    .get(url)
     .then((response) => response.data as IUser)
+    .catch((error) => error.message);
+};
+
+export const updateUser: TUpdateUser = async ({ user }) => {
+  const url = `/api/user`;
+
+  return axios
+    .put(url, { userEdited: user })
+    .then(() => "OK")
     .catch((error) => error.message);
 };

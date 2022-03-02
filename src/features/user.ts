@@ -1,11 +1,19 @@
-// since I want to reassign parameters in the reducer I allow param reassign only here
+// Since I want to reassign parameters in the reducer I allow param reassign here
 /* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IUser } from "src/interfaces/user.interface";
+import { EUserKeys, IUser } from "src/interfaces/user.interface";
 import { RootState } from "src/interfaces/store.interface";
 
+export const emptyUser: IUser = {
+  [EUserKeys.name]: "",
+  [EUserKeys.password]: "",
+  [EUserKeys.id]: "",
+  [EUserKeys.location]: "",
+  [EUserKeys.genre]: "",
+};
+
 const initialUserState = {
-  value: {} as IUser,
+  value: emptyUser,
 };
 
 export const userSlice = createSlice({

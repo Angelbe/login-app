@@ -1,7 +1,10 @@
-import { FormEventHandler, MouseEvent } from "react";
+import { FormEventHandler } from "react";
+import { EGetUser } from "src/interfaces/user.interface";
 
-export interface IHandleSubmit {
-  event: MouseEvent<HTMLButtonElement>;
+export interface ILoginInputs {
+  key: EGetUser;
+  title: string;
+  type: string;
 }
 
 export type THandleSubmit = FormEventHandler<HTMLFormElement>;

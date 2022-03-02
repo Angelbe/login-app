@@ -1,8 +1,5 @@
 import React from "react";
-
-interface IMain {
-  className?: string;
-}
+import { IMain } from "./Main.interface";
 
 const Main: React.FC<IMain> = ({ children, ...props }) => (
   <div {...props}>{children}</div>

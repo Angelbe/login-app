@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { ECountryKeys } from "src/interfaces/country.interface";
 import { getPercentatge, sortCountries } from "./CountryGraph.helpers";
 import {
   CountryBar,
@@ -7,15 +8,10 @@ import {
   CountryName,
   ProgressBar,
 } from "./CountryGraph.styles";
-import { ICountry } from "../../interfaces/country.interface";
-
-interface ICountryGraph {
-  countryList: ICountry[];
-  sortValue: keyof ICountry;
-}
+import { ICountryGraph } from "./CountryGraph.interface";
 
 const CountryGraph: React.FC<ICountryGraph> = ({ countryList, sortValue }) => {
-  const [maxValueSorted, setMaxValueSorted] = useState(0);
+  const [maxValueSorted, setMaxValueSorted] = useState<number>(0);
 
   useEffect(() => {
     if (countryList.length > 0) {
@@ -30,21 +26,19 @@ const CountryGraph: React.FC<ICountryGraph> = ({ countryList, sortValue }) => {
       {[...countryList]
         .sort((firstCountry, secondCountry) =>
           sortCountries({
-            firstCountry: firstCountry[sortValue] as number,
-            secondCountry: secondCountry[sortValue] as number,
+            firstCountry: firstCountry[sortValue],
+            secondCountry: secondCountry[sortValue],
           })
         )
-        .map(({ country, ...countryParams }) => {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          const valueSorted = countryParams[sortValue];
+        .map((country) => {
+          const valueSorted = country[sortValue] as number;
           const valueSortedPercentatge = getPercentatge({
             value: valueSorted,
             maxValue: maxValueSorted,
           });
           return (
-            <CountryListContainer key={country}>
-              <CountryName>{country}</CountryName>
+            <CountryListContainer key={country[ECountryKeys.country]}>
+              <CountryName>{country[ECountryKeys.country]}</CountryName>
               <CountryBar>
                 <CountryBarText>
                   {valueSorted} ({Math.trunc(valueSortedPercentatge)}%)

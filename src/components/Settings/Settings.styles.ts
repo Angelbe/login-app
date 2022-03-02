@@ -15,3 +15,12 @@ export const ContentTitleContainer = styled.div`
 export const ContentTextContainer = styled.div`
   padding: 25px;
 `;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  button {
+    margin-left: 15px;
+  }
+`;

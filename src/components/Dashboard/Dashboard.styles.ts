@@ -4,7 +4,7 @@ export const DashboardContainer = styled.div`
   width: 100%;
 `;
 
-export const DashbardTitle = styled.div`
+export const DashboardTitle = styled.div`
   color: white;
   text-transform: capitalize;
   font-weight: bold;
