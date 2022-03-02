@@ -24,8 +24,8 @@ const Settings: React.FC<ISettings> = ({ title }) => {
     setIsLoading(true);
     updateUser({ user: userFromPopup }).then(() => {
       dispatch(setUser(userFromPopup));
-      setOpen(false);
       setIsLoading(false);
+      setOpen(false);
     });
   };
 

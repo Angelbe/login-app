@@ -46,7 +46,7 @@ export default function handler(
   if (req.method === "POST") {
     const { newUser } = req.body;
 
-    userList.push({ ...newUser, id: "id-3" });
+    userList.push({ ...newUser, id: `id-${userList.length + 2}` });
 
     res.status(200).json("OK");
   }

@@ -15,4 +15,5 @@ export type THandleSaveEdit = (param: IHandleSaveEdit) => void;
 export interface IInputListItem {
   key: EUserKeys;
   title: string;
+  placeholder?: string;
 }

@@ -5,6 +5,7 @@ export interface ILoginInputs {
   key: EGetUser;
   title: string;
   type: string;
+  placeholder?: string;
 }
 
 export interface ILoginInputContainer {

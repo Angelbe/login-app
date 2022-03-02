@@ -67,11 +67,12 @@ const LoginForm: React.FC = () => {
       <LoginInputContainer id="loginForm" onSubmit={handleSubmit}>
         <TitleFormContainer>Log in</TitleFormContainer>
         <LoginInputsContainer>
-          {loginInputs.map(({ key, title, type }) => (
+          {loginInputs.map(({ key, title, type, placeholder }) => (
             <InputWithTitle
               key={key}
               title={title}
               type={type}
+              placeholder={placeholder}
               value={loginData[key]}
               onChange={(event) =>
                 setLoginData((prevData) => ({

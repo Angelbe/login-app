@@ -19,8 +19,5 @@ export const ContentTextContainer = styled.div`
 export const ButtonContainer = styled.div`
   display: flex;
   width: 100%;
-  justify-content: flex-end;
-  button {
-    margin-left: 15px;
-  }
+  justify-content: space-between;
 `;

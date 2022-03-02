@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FormEventHandler } from "react";
 import {
   IInputListItem,
   THandleSaveEdit,
@@ -13,4 +13,7 @@ export interface IPopupFormUser {
   popupTitle: string;
   inputsList: IInputListItem[];
   isLoading?: boolean;
+  placeholder?: string;
 }
+
+export type THandleSubmit = FormEventHandler<HTMLFormElement>;

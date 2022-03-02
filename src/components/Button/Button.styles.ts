@@ -9,8 +9,12 @@ export const ButtonStyled = styled.button<IButtonProps>`
   border: 1px solid;
   transition: all 250ms;
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
-  background-color: ${({ bcolor, theme, disabled }) =>
-    bcolor || disabled ? theme.disabledColor : theme.secundaryColor};
+  background-color: ${({ bcolor, theme, disabled }) => {
+    if (disabled) {
+      return theme.disabledColor;
+    }
+    return bcolor || theme.secundaryColor;
+  }};
   border-color: ${({ color, theme }) => color || theme.mainColor};
   border-radius: ${({ theme }) => theme.borderRadius};
   font-size: ${({ theme }) => theme.defaultFontSize};
