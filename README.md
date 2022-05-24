@@ -26,3 +26,14 @@ npm run start
 yarn build
 yarn start
 ```
+
+Tech stack:
+React
+Next
+Typescript
+Redux
+Styled Components
+SVGR
+Axios
+ESlint
+Prettier
