@@ -11,6 +11,7 @@ import {
   DashboardTitle,
 } from "./Dashboard.styles";
 import { IDashboard } from "./Dashboard.interface";
+import { CountryListContainer } from "../CountryGraph/CountryGraph.styles";
 
 const Dashboard: React.FC<IDashboard> = ({ title }) => {
   const dispatch = useAppDispatch();
@@ -18,21 +19,41 @@ const Dashboard: React.FC<IDashboard> = ({ title }) => {
   const [sortValue, setSortValue] = useState<keyof ICountry>(
     ECountryKeys.airPollution
   );
+  const [filteredList, setFilteredList] = useState<ICountry[]>(countryList);
+  const [filterInputText, setFilterInputText] = useState<string>("");
 
   useEffect(() => {
     if (countryList.length <= 0) {
-      getCountries().then((countriesList) =>
-        dispatch(setCountryList(countriesList))
-      );
+      getCountries().then((countriesList) => {
+        dispatch(setCountryList(countriesList));
+        setFilteredList(countriesList);
+      });
     }
   }, []);
+
+  useEffect(() => {
+    const countryListFiltered = countryList.filter((value) =>
+      value.country.toLowerCase().includes(filterInputText.toLocaleLowerCase())
+    );
+
+    setFilteredList(countryListFiltered);
+  }, [filterInputText]);
 
   return (
     <DashboardContainer>
       <DashboardTitle>{title}</DashboardTitle>
+
       <DashboardContent>
         <CountryGraphHeader sortValue={sortValue} setSortValue={setSortValue} />
-        <CountryGraph countryList={countryList} sortValue={sortValue} />
+        <CountryListContainer>
+          Filter:{" "}
+          <input
+            type="text"
+            value={filterInputText}
+            onChange={(e) => setFilterInputText(e.target.value)}
+          />
+        </CountryListContainer>
+        <CountryGraph countryList={filteredList} sortValue={sortValue} />
       </DashboardContent>
     </DashboardContainer>
   );
